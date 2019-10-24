@@ -1,0 +1,16 @@
+table, th, td {
+	border: 1px solid black;
+	background: white;
+}
+main{
+	color: white;
+}
+h2{
+	color:white;
+}
+ul, li{
+	color: white;
+}
+p{
+	color: white;
+}

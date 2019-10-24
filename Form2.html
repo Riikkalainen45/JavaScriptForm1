@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="FormJS.js"></script>
+  <link href="FormStyle.css" rel="stylesheet">
+
+  <style>
+  container {
+    background: white
+}
+  </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><b>TRIATHLON</b></a>
+    </div>
+    <div class="jumbotron text-center">
+    <h1><A onmouseover="alert('Syötä treenimäärä minuutteina!')"href>TREENIVIIKKO</A></h1>
+  </div>
+
+
+<div class="container">
+
+<form id ="treForm" name="harkka" method="post" action ="#" onsubmit "return validateTable()">
+<table id ="table">
+  <thead>
+  <tr>
+      <th scope="col-sm-3">TREENI</th>
+      <th scope="col-sm-1">MA</th>
+      <th scope="col-sm-1">TI</th>
+      <th scope="col-sm-1">KE</th>
+      <th scope="col-sm-1">TO</th>
+      <th scope="col-sm-1">PE</th>
+      <th scope="col-sm-1">LA</th>
+      <th scope="col-sm-1">SU</th>
+    </tr>
+  </thead>
+
+    <tr>
+      <td>JUOKSU</td>
+      <td><input type "number" id="maj" name="maj" value=0></td>
+      <td><input type "number" id="tij" name="tij" value=0></td>
+      <td><input type "number" id="kej" name="kej" value=0></td>
+      <td><input type "number" id="toj" name="toj"value=0></td>
+      <td><input type "number" id="pej" name="pej"value=0></td>
+      <td><input type "number" id="laj" name="laj"value=0></td>
+      <td><input type "number" id="suj" name="suj"value=0></td>
+    </tr>
+
+    <tr>
+      <td>PYÖRÄILY</td>
+      <td><input type "number" id="map" name="map" value=0></td>
+      <td><input type "number" id="tip" name="tip"value=0></td>
+      <td><input type "number" id="kep" name="kep"value=0></td>
+      <td><input type "number" id="top" name="top"value=0></td>
+      <td><input type "number" id="pep" name="pep"value=0></td>
+      <td><input type "number" id="lap" name="lap"value=0></td>
+      <td><input type "number" id="sup" name="sup"value=0></td>
+    </tr>
+    <tr>
+      <td>UINTI</td>
+      <td><input type "number" id="mau" name="mau" value=0></td>
+      <td><input type "number" id="tiu" name="tiu"value=0></td>
+      <td><input type "number" id="keu" name="keu"value=0></td>
+      <td><input type "number" id="tou" name="tou"value=0></td>
+      <td><input type "number" id="peu" name="peu"value=0></td>
+      <td><input type "number" id="lau" name="lau"value=0></td>
+      <td><input type "number" id="suu" name="suu"value=0></td>
+    </tr>
+    <tr>
+      <td>SALI</td>
+      <td><input type "number" id="mas" name="mas" value=0></td>
+      <td><input type "number" id="tis" name="tis"value=0></td>
+      <td><input type "number" id="kes" name="kes"value=0></td>
+      <td><input type "number" id="tos" name="tos"value=0></td>
+      <td><input type "number" id="pes" name="pes"value=0></td>
+      <td><input type "number" id="las" name="las"value=0></td>
+      <td><input type "number" id="sus" name="sus"value=0></td>
+    </tr>
+    <tr>
+      <td><button onclick="myFunction2()">Tyhjennä</button></td>
+      <td><button type ="button" onclick="validateTable()">Tarkasta</button></td>
+      <td></td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+      <td>  </td>
+    </tr>
+    <tr>
+      <td><input type= "button"name="Submit1" value="YHTEENSÄ" onclick="myFunction1()"/></td>
+      <td><input type "number" id="may" name="may" value=""/></td>
+      <td><input type "number" id="tiy" name="tiy" value=""/></td>
+      <td><input type "number" id="key" name="key" value=""/></td>
+      <td><input type "number" id="toy" name="toy" value=""/></td>
+      <td><input type "number" id="pey" name="pey" value=""/></td>
+      <td><input type "number" id="lay" name="lay" value=""/></td>
+      <td><input type "number" id="suy" name="suy" value=""/></td>
+    </tr>
+</table>
+<p id="tulos"></p><br>
+<span id="val"></span>
+</form>
+
+
+
+    <div class="motivation">
+
+    <div class="col-sm-3">
+      <ul>
+          <h2>Sprint</h2><br>
+
+        <li>uinti 750m</li>
+        <li>py&ouml;räily 20km</li>
+        <li>juoksu 5km</li>
+      </ul>
+    </div>
+
+    <div class="col-sm-3">
+       <ul>
+      <h2>Olympia</h2><br>
+
+        <li>uinti 1500m</li>
+        <li>py&ouml;räily 40km</li>
+        <li>juoksu 10km</li>
+      </ul>
+    </div>
+
+
+      <div class="col-sm-3">
+      <ul>
+        <h2>Puolimatka</h2><br>
+
+        <li>uinti 1900m</li>
+        <li>py&ouml;räily 90km</li>
+        <li>juoksu 21km</li>
+      </ul>
+    </div>
+
+    <div class="col-sm-3">
+       <ul>
+      <h2>Ter&auml;smies</h2><br>
+
+        <li>uinti 3800m</li>
+        <li>py&ouml;räily 180km</li>
+        <li>juoksu 42km</li>
+      </ul>
+    </div><br><br><br><hr><br><br><br><br><br><br>
+
+
+<h2 id="hiiri" onmousedown="mouseDown()"onmouseup="mouseUp()" >YHTEENVETO</h2>
+
+<form id ="treeniSum">
+  <table class="table">
+  <thead>
+  <tr>
+      <th scope="col-sm-3">TREENIVIIKKO</th>
+      <th scope="col-sm-2"></th>
+      <th scope="col-sm-1">minuuttia</th>
+      <th scope="col-sm-2"></th>
+      <th scope="col-sm-1">tuntia</th>
+
+    </tr>
+  </thead>
+
+    <tr>
+      <td>JUOKSU</td>
+      <td><input type "number" id="jym" name="jym" value=""/></td>
+      <td></td>
+      <td></td>
+      <td><input type "number" id="jyh" name="jyh" value=""/></td>
+    </tr>
+    <tr>
+      <td>PYÖRÄILY</td>
+      <td><input type "number" id="pym" name="pym" value=""/></td>
+      <td></td>
+      <td></td>
+      <td><input type "number" id="pyh" name="pyh" value=""/></td>
+    </tr>
+    <tr>
+      <td>UINTI</td>
+      <td><input type "number" id="uym" name="uym" value=""/></td>
+      <td></td>
+      <td></td>
+      <td><input type "number" id="uyh" name="uyh" value=""/></td>
+    </tr>
+    <tr>
+      <td><input type="button" onclick="myFunction4()" value="Tyhjennä kentät"/></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><input type="button" name="Submit" value="YHTEENSÄ" onclick="myFunction5()"/></td>
+      <td><input type "number" id="yhm" name= "yhm" value=""/></td>
+      <td></td>
+      <td></td>
+      <td><input type="button" value= "Viikkoarvio" onclick="myValuation()"/></td>
+
+    </tr>
+  </table>
+</form>
+
+
+  <div class="col-sm-6">
+
+  <h2>Miten meni "Omasta mielestä"?</h2>
+
+<label class="container">&#128512;
+  <input type="checkbox" id="hyvä"onclick="myFunction10()"/>
+  <p id ="kommentti" style="display:none">Hyvä sinä!</p>
+</label>
+
+<label class="container">&#128528;
+  <input type="checkbox" id="ok"onclick="myFunction10()">
+  <p id="arvio2" style="display:none">Jotain kuitenkin!</p>
+</label>
+
+<label class="container">&#128526;
+  <input type="checkbox"  id="voi"onclick="myFunction10()">
+  <p id="arvio3" style="display:none">Viihteellä siis!</p>
+</label>
+
+<label class="container">&#128533;
+  <input type="checkbox"  id="huono"onclick="myFunction10()">
+  <p id="arvio4" style="display:none">No ensiviikolla petrataan!</p>
+</label></div>
+
+<div class="col-sm-6">
+  <h2>Treenimäärän perusteella ohjelma arvio suorituksen olevan:</h2>
+ <br><br>
+<h2 id="text1"></h2><br>
+</div>
+
+
+
+
+
+    <script src="FormJS.js"></script>
+
+</body>
+</html>
